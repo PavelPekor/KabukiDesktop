@@ -1,0 +1,52 @@
+﻿<UserControl x:Class="Kabuki_Desktop.Views.UserControls.ProductCardInMainMenu"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Kabuki_Desktop.Views.UserControls"
+             xmlns:model="clr-namespace:Kabuki_Desktop.Models"
+             xmlns:VM="clr-namespace:Kabuki_Desktop.ViewModels"
+             xmlns:CON="clr-namespace:Kabuki_Desktop.Converters" 
+             mc:Ignorable="d" 
+             Height="500" Width="350">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="..\..\Dictionaries\BaseDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid Background="{StaticResource CardBG}">
+        <Grid.Resources>
+            <CON:PhotoNameToPathConverter x:Key="PhotoConverter"/>
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="0.8*"/>
+        </Grid.RowDefinitions>
+
+        <Image Grid.Row="0" Margin="10 5"
+               Source="{Binding Photo, Converter={StaticResource PhotoConverter}}"/>
+
+        <TextBlock Grid.Row="1" FontSize="35" Text="{Binding Path=Name}"
+                   Margin="25 0" Foreground="White" TextAlignment="Center"
+                   TextWrapping="Wrap" VerticalAlignment="Top"
+                   Style="{StaticResource BaseTextBlockStyle}"/>
+
+        <TextBlock Grid.Row="2" FontSize="20" Text="{Binding Path=Description}" Margin="25 0"
+                   Foreground="Wheat" TextAlignment="Left"
+                   TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+
+        <Button Grid.Row="3" Style="{DynamicResource BaseUCButtonStyle}"
+                Command="{Binding RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}},
+                                Path=DataContext.AddProductToCart}"
+                CommandParameter="{Binding}">
+            <Button.Content>
+                <TextBlock Text="{Binding StringFormat= Цена - {0}Р, Path=Price}" />
+            </Button.Content>
+        </Button>
+    </Grid>
+</UserControl>

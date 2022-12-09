@@ -1,0 +1,122 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <RootNamespace>Kabuki_Desktop</RootNamespace>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Pictures\icon.png" />
+    <None Remove="Pictures\MainWindow\cross.png" />
+    <None Remove="Pictures\Products\Americano.jpg" />
+    <None Remove="Pictures\Products\BaconRoll.jpg" />
+    <None Remove="Pictures\Products\CaliforniaRoll.jpg" />
+    <None Remove="Pictures\Products\CanadaTobico.jpg" />
+    <None Remove="Pictures\Products\ChaiRoibush.jpg" />
+    <None Remove="Pictures\Products\ChaiSencha.jpg" />
+    <None Remove="Pictures\Products\CheeseCakeSBrauni.jpg" />
+    <None Remove="Pictures\Products\FiladelfiaRoyal.jpg" />
+    <None Remove="Pictures\Products\IgaiYaki.jpg" />
+    <None Remove="Pictures\Products\MeatSkovoroda.jpg" />
+    <None Remove="Pictures\Products\MisoSoup.jpg" />
+    <None Remove="Pictures\Products\PivoCarlsberg.jpg" />
+    <None Remove="Pictures\Products\PizzaCezar.jpg" />
+    <None Remove="Pictures\Products\PizzaShaverma.jpg" />
+    <None Remove="Pictures\Products\RussianBurger.jpg" />
+    <None Remove="Pictures\Products\SakeNigiri.jpg" />
+    <None Remove="Pictures\Products\SalatVostochni.jpg" />
+    <None Remove="Pictures\Products\SidrGrusha.jpg" />
+    <None Remove="Pictures\Products\TarTarRoll.jpg" />
+    <None Remove="Pictures\Products\TutoBianka.jpg" />
+    <None Remove="Pictures\Products\UdonCiplenok.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.8">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.8">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Pictures\icon.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Pictures\MainWindow\cross.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Pictures\Products\Americano.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Pictures\Products\BaconRoll.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Pictures\Products\CaliforniaRoll.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Pictures\Products\CanadaTobico.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Pictures\Products\ChaiRoibush.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Pictures\Products\ChaiSencha.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Pictures\Products\CheeseCakeSBrauni.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Pictures\Products\FiladelfiaRoyal.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Pictures\Products\IgaiYaki.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Pictures\Products\MeatSkovoroda.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Pictures\Products\MisoSoup.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Pictures\Products\PivoCarlsberg.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Pictures\Products\PizzaCezar.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Pictures\Products\PizzaShaverma.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Pictures\Products\RussianBurger.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Pictures\Products\SakeNigiri.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Pictures\Products\SalatVostochni.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Pictures\Products\SidrGrusha.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Pictures\Products\TarTarRoll.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Pictures\Products\TutoBianka.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Pictures\Products\UdonCiplenok.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+</Project>

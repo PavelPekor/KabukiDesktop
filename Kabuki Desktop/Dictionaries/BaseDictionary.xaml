@@ -1,0 +1,78 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <SolidColorBrush x:Key="GridBG" Color="#482c28"/>
+    <SolidColorBrush x:Key="ButtonBG" Color="#384467"/>
+    <SolidColorBrush x:Key="ButtonFG" Color="#E1C7AB"/>
+    <SolidColorBrush x:Key="TextBoxFG" Color="#482c28"/>
+    <SolidColorBrush x:Key="TextBoxBG" Color="#bba3a2"/>
+    <SolidColorBrush x:Key="TextBlockFG" Color="#E1C7AB"/>
+    <SolidColorBrush x:Key="CardBG" Color="#844527"/>
+
+    <Style x:Key="BaseTextBlockStyle" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="30"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="FontFamily" Value="Bahnschrift"/>
+    </Style>
+
+    <Style x:Key="BaseTextBlockUCStyle" TargetType="TextBlock"
+           BasedOn="{StaticResource BaseTextBlockStyle}">
+        <Setter Property="FontSize" Value="40"/>
+        <Setter Property="Foreground" Value="{StaticResource TextBlockFG}"/>
+        <Setter Property="HorizontalAlignment" Value="Right"/>
+    </Style>
+
+    <Style x:Key="BaseTextBoxStyle" TargetType="TextBox">
+        <Setter Property="FontSize" Value="40"/>
+        <Setter Property="Padding" Value="10 5 5 5"/>
+        <Setter Property="Foreground" Value="{StaticResource TextBoxFG}"/>
+        <Setter Property="Background" Value="{StaticResource TextBoxBG}"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="FontFamily" Value="Bahnschrift"/>
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Border Background="{TemplateBinding Background}">
+                        <ScrollViewer x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="BaseButtonStyle" TargetType="Button">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="FontFamily" Value="Bahnschrift"/>
+    </Style>
+
+    <Style x:Key="BaseUCButtonStyle" TargetType="Button"
+           BasedOn="{StaticResource BaseButtonStyle}">
+        <Setter Property="FontSize" Value="40"/>
+        <Setter Property="Padding" Value="10"/>
+        <Setter Property="Foreground" Value="{StaticResource ButtonFG}"/>
+        <Setter Property="Background" Value="{StaticResource ButtonBG}"/>
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border x:Name="border" Background="{TemplateBinding Background}">
+                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          Margin="{TemplateBinding Padding}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="#252d48"></Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+</ResourceDictionary>

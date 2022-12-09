@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32630.192
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kabuki Desktop", "Kabuki Desktop\Kabuki Desktop.csproj", "{A84B3B07-B390-4B85-9104-9D0CDB28265F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A84B3B07-B390-4B85-9104-9D0CDB28265F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A84B3B07-B390-4B85-9104-9D0CDB28265F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A84B3B07-B390-4B85-9104-9D0CDB28265F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A84B3B07-B390-4B85-9104-9D0CDB28265F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A36241AB-7BAE-4049-82EA-5D4760189FCB}
+	EndGlobalSection
+EndGlobal

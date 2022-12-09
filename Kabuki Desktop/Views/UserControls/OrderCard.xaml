@@ -1,0 +1,71 @@
+﻿<UserControl x:Class="Kabuki_Desktop.Views.UserControls.OrderCard"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Kabuki_Desktop.Views.UserControls"
+             xmlns:model="clr-namespace:Kabuki_Desktop.Models"
+             xmlns:VM="clr-namespace:Kabuki_Desktop.ViewModels"
+             xmlns:CON="clr-namespace:Kabuki_Desktop.Converters"
+             mc:Ignorable="d" 
+             Height="500" Width="400">
+    <UserControl.Resources>
+        <CON:DateTimeToDateConverter x:Key="dateConverter"/>
+    </UserControl.Resources>
+    
+    <Grid Background="Wheat">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.6*"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="0.6*"/>
+            <RowDefinition Height="0.8*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="30"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="30"/>
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Row="0" Grid.Column="1" BorderThickness="0 0 0 2" BorderBrush="Black">
+            <TextBlock 
+                   FontSize="30" FontFamily="Bahnschrift"
+                   VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Run Text="Номер заказа - "/><Run Text="{Binding Id}"/>
+            </TextBlock>
+        </Border>
+
+        <ScrollViewer Grid.Row="1" Grid.Column="1" HorizontalScrollBarVisibility="Disabled"
+                      VerticalScrollBarVisibility="Auto" Margin="0 15">
+            <ItemsControl ItemsSource="{Binding ProductsInOrders}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="•" Foreground="Gray" Margin="0 0 10 0"
+                                       FontSize="20"/>
+                            <TextBlock Text="{Binding Product.Name}" FontStyle="Italic"
+                                       Margin="0 0 15 0" FontSize="20"/>
+                            <TextBlock FontSize="20" Foreground="#f79127">
+                                <Run Text="{Binding Quantity}"/><Run Text=" шт."/>
+                            </TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+
+        <Border Grid.Row="2" Grid.Column="1"
+                BorderThickness="0 1 0 1" BorderBrush="Black">
+            <TextBlock Text="{Binding DateTimeOrder,Converter={StaticResource dateConverter}}"
+                       Foreground="#482c28"
+                       VerticalAlignment="Center" HorizontalAlignment="Center"
+                       FontSize="25" FontFamily="Bahnschrift"/>
+        </Border>
+
+        <TextBlock Grid.Row="3" Grid.Column="1" 
+                   
+                   VerticalAlignment="Center" HorizontalAlignment="Center"
+                   FontSize="30" FontFamily="Bahnschrift">
+            <Run Text="Цена - "/><Run Text="{Binding OrderPrice}"/><Run Text="Р"/>
+        </TextBlock>
+    </Grid>
+</UserControl>

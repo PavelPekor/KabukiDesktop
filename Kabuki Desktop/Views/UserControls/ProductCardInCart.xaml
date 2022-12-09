@@ -1,0 +1,154 @@
+﻿<UserControl x:Class="Kabuki_Desktop.Views.UserControls.ProductCardInCart"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Kabuki_Desktop.Views.UserControls"
+             xmlns:model="clr-namespace:Kabuki_Desktop.Models"
+             xmlns:CON="clr-namespace:Kabuki_Desktop.Converters" 
+             mc:Ignorable="d" 
+             Height="150" Width="1200">
+    <UserControl.Resources>
+        <CON:PhotoNameToPathConverter x:Key="PhotoConverter"/>
+        <CON:PriceToCostConverter x:Key="PriceToCostCon"/>
+    </UserControl.Resources>
+
+
+    <Grid Background="#844527">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="15"/>
+            <RowDefinition/>
+            <RowDefinition Height="15"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition Width="1.5*"/>
+                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Image Grid.Column="0" Width="120" Height="120"
+                   Source="{Binding Product.Photo, Converter={StaticResource PhotoConverter}}"
+                   HorizontalAlignment="Right" Margin="0 0 10 0"/>
+
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+
+                <StackPanel Grid.Row="0" Orientation="Horizontal">
+                    <TextBlock Text="{Binding Product.Name}" Foreground="White"
+                           FontSize="30" FontFamily="Bahnschrift"
+                           VerticalAlignment="Top"/>
+                    <Button Background="Transparent"
+                            Cursor="Hand" Command="{Binding RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}},
+                                Path=DataContext.DeleteProductFromCart}"
+                                CommandParameter="{Binding Id}">
+                        <Button.Template>
+                            <ControlTemplate>
+                                <TextBlock x:Name="delete"
+                                   Text="Удалить" Foreground="#FF6347"
+                                   FontSize="20" FontFamily="Bahnschrift"
+                                   Margin="20 0 0 0"
+                                   VerticalAlignment="Center"/>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter TargetName="delete" Property="Foreground" Value="#c73831"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                </StackPanel>
+                
+                <TextBlock Grid.Row="1" Foreground="Wheat" FontSize="20"
+                           TextWrapping="Wrap" 
+                           Text="{Binding Product.Description}"/>
+            </Grid>
+
+            <Grid Grid.Column="3">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" 
+                Foreground="Wheat" FontSize="40"
+                           HorizontalAlignment="Center">
+                    <TextBlock.Text>
+                        <MultiBinding Converter="{StaticResource PriceToCostCon}">
+                            <Binding Path="Product.Price"/>
+                            <Binding Path="Quantity"/>
+                        </MultiBinding>
+                    </TextBlock.Text>
+                </TextBlock>
+
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="1" Grid.ColumnSpan="3"
+                          Background="#f0f0f0" VerticalAlignment="Center">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Button Grid.Column="0" Background="Transparent"
+                                Cursor="Hand" Command="{Binding RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}},
+                                Path=DataContext.SubtractQuantity}"
+                                CommandParameter="{Binding Id}">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border x:Name="border" Background="Transparent">
+                                        <Rectangle Width="20" Height="3" Fill="Black"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter TargetName="border" Property="Background" Value="Silver"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+
+                        <TextBlock Grid.Column="1" Text="{Binding Quantity}"
+                                   FontSize="35" Foreground="Gray"
+                                   TextAlignment="Center"
+                                   HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                        <Button Grid.Column="2" Background="Transparent"
+                                Cursor="Hand" Command="{Binding RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}},
+                                Path=DataContext.AddQuantity}"
+                                CommandParameter="{Binding Id}">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border x:Name="border" Background="Transparent">
+                                        <Grid>
+                                            <Rectangle Width="20" Height="3" Fill="Black"/>
+                                            <Rectangle Width="3" Height="20" Fill="Black"/>
+                                        </Grid>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter TargetName="border" Property="Background" Value="Silver"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                    </Grid>
+
+                </Grid>
+                
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>
